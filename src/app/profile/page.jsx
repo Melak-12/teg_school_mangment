@@ -25,6 +25,7 @@ import EditProfile from "./AskLeave";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import Calendar from "react-calendar";
 // import Calendar from "react-calendar";
 
 const ProfileDashboard = () => {
@@ -249,11 +250,11 @@ const ProfileDashboard = () => {
                           className='w-96 h-96'
                           style={{ border: "  ", borderRadius: 4 }}
                         >
-                          {/* <Calendar
+                          <Calendar
                             onChange={onChange}
                             value={date}
                             className='w-full'
-                          />{" "} */}
+                          />{" "}
                         </div>
                       </span>
                     </div>
