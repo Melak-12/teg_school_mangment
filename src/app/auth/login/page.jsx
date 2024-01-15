@@ -30,7 +30,7 @@ const LoginPage = () => {
                 sign with google
               </button>
             </div>
-            <form onChange={()=>alert('wait')} className=''>
+            {/* <form onChange={()=>alert('wait')} className=''> */}
               <div className='mb-4'>
                 <label className='block text-slate-700 text-sm font-bold mb-2'>
                   Email
@@ -83,7 +83,7 @@ const LoginPage = () => {
                   Login
                 </button>
               </div>
-            </form>
+            {/* </form> */}
             <p className='text-sm'>
               Not registerd yet? creat a new account{" "}
               <Link className='' href='/register'>
