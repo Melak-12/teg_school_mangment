@@ -241,10 +241,7 @@ const ProfileDashboard = () => {
                       className='w-ful '
                       style={{ border: "  ", borderRadius: 4 }}
                     >
-                      {/* <Calendar
-                        fullscreen={false}
-                        onPanelChange={onPanelChange}
-                      /> */}
+                      
                       <span className='flex gap-3 text-slate-500 h-64 w-full'>
                         <div
                           className='w-96 h-96'
