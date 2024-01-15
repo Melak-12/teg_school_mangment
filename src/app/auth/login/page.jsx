@@ -6,9 +6,9 @@ import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
   const router=useRouter()
-  // const goDashboard=()=>{
-  //   router.push('/dashboard')
-  // }
+  const goDashboard=()=>{
+    router.push('/dashboard')
+  }
 
   return (
     <>
@@ -77,7 +77,7 @@ const LoginPage = () => {
               <div className='flex items-center justify-between'>
                 <button
                   type='submit'
-                //  onClick={goDashboard}
+                 onClick={goDashboard}
                   className='bg-indigo-900 w-full rounded-xl text-white font-bold px-8 py-3 focus:outline-none focus:shadow-outline'
                 >
                   Login
