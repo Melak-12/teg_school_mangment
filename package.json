@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
-    "@mantine/core": "^7.4.1",
     "flowbite": "^2.2.1",
     "next": "14.0.4",
     "react": "^18",
