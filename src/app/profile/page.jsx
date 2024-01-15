@@ -1,5 +1,7 @@
 "use client";
-// import { Popover } from "@headlessui/react";
+
+// import { Popover } from "flowbite";
+import { Popover } from "@headlessui/react";
 import AskLeave from "./AskLeave";
 import EditProfile from "./AskLeave";
 
@@ -85,7 +87,7 @@ const ProfileDashboard = () => {
                     // onOpenChange={handleOpenChange1}
                   > */}
 
-                  {/* <Popover className='relative'>
+                  <Popover className='relative'>
                     {({ open }) => (
                       <>
                         <Popover.Button className=''>
@@ -117,7 +119,7 @@ const ProfileDashboard = () => {
                         </Popover.Panel>
                       </>
                     )}
-                  </Popover> */}
+                  </Popover>
 
                   {/*  */}
 
