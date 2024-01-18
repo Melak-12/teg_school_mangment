@@ -29,7 +29,13 @@ const page = () => {
             <i className='fa fa-search mt-2 -mx-5 text-slate-400'></i>
           </div>
         </div>
-        user
+        <Image
+          src={"/elsabet.jpeg"}
+          alt=''
+          width={50}
+          height={40}
+          className='rounded-full rounded-image  ring-1 ring-slate-400 -pb-2'
+        />
       </div>
       <div className='flex flex-row justify-between gap-20 px-20 pt-20  '>
         <div className='w-full h-96 rounded-lg shadow-lg relative'>
