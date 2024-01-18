@@ -3,7 +3,6 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import Staff from "./staff/page";
 import Dashboard from "./Dashboard";
-// import { Avatar } from "antd";
 import Candidate from "./candidate/page";
 import Log from "./log/page";
 import Image from "next/image";
@@ -31,13 +30,17 @@ const Hr = () => {
       <div className='flex flex-col w-full '>
         <div className='flex flex-row justify-between p-5 w-full'>
           <span>
-            <Image src={'/logo.png'} alt='' width={40} height={40}/>
+            <Image src={"/logo.png"} alt='' width={40} height={40} />
           </span>
-          <span className='text-slate-500 gap-5'>
-            23-23-2000
-            {/* <Avatar>
-              <i className='fa fa-user text-2xl px-2'></i>
-            </Avatar> */}avatar
+          <span className='text-slate-500 gap-5 flex flex-row'>
+            <span className='flex pt-4 '>20,jan,2023</span>{" "}
+            <Image
+              src={"/elsabet.jpeg"}
+              alt=''
+              width={40}
+              height={40}
+              className='rounded-full rounded-image  ring-1 ring-slate-400 -pb-2'
+            />
           </span>
         </div>
         <div className='flex flex-row w-full mx-8 gap-3'>
