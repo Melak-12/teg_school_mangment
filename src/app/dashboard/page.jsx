@@ -439,8 +439,7 @@ const Dashboard = () => {
                 className='bg-slate-200 w-44 m-1 text-slate-500 font-md text-xs rounded-lg p-3  '
               >
                 <div className='flex flex-row py-1 gap-3'>
-                  {/* <span className='text-lg'>{<UserAddOutlined />}</span> */}
-                  add user icon
+                  <i className='fa fa-user text-xl font-bold text-slate-500'></i>{" "}
                   <span className=''>{"patient support"}</span>
                 </div>
                 <div className='flex flex-col'>
