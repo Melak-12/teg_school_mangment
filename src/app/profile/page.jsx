@@ -5,23 +5,6 @@ import { Popover } from "@headlessui/react";
 import AskLeave from "./AskLeave";
 import EditProfile from "./AskLeave";
 
-// import {
-//   UserAddOutlined,
-//   SaveOutlined,
-//   PlusCircleOutlined,
-// } from "@ant-design/icons";
-// import Icon from "@ant-design/icons/lib/components/Icon";
-// import {
-//   Avatar,
-//   Calendar,
-//   Card,
-//   Col,
-//   Grid,
-//   List,
-//   Popover,
-//   Row,
-//   Switch,
-// } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -31,6 +14,24 @@ import Calendar from "react-calendar";
 const ProfileDashboard = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [status, setStatus] = useState("");
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  //TODO date
+  const tileContent = ({ date, view }) => {
+    if (view === "month" && date.getTime() === selectedDate?.getTime()) {
+      return (
+        <div className='bg-blue-500 text-white p-2 rounded-full'>
+          {date.getDate()}
+        </div>
+      );
+    }
+    return null;
+  };
+
+  const handleDateClick = (date) => {
+    setSelectedDate(date);
+    // Handle other actions if needed
+  };
 
   const toggleModal = () => {
     setModalVisible((prev) => !prev);
@@ -47,6 +48,7 @@ const ProfileDashboard = () => {
     setDate(newDate);
   };
 
+  //date
   return (
     <div className='mt-4 '>
       <div className=''>
@@ -64,29 +66,6 @@ const ProfileDashboard = () => {
                       className='rounded-lg rounded-image text-center'
                     />
                   </Link>
-
-                  {/* <Popover
-                    content={
-                      <>
-                        <div className='flex justify-center flex-col w-40 h-10 gap-4 text-slate-600 p-9 '>
-                          <span
-                            className='cursor-pointer '
-                            onClick={() => setStatus("leave")}
-                          >
-                            ask for leave
-                          </span>
-                          <span
-                            className='cursor-pointer '
-                            onClick={() => setStatus("leave")}
-                          >
-                            edit profile
-                          </span>
-                        </div>
-                      </>
-                    }
-                    trigger='click'
-                    // onOpenChange={handleOpenChange1}
-                  > */}
 
                   <Popover className='relative'>
                     {({ open }) => (
@@ -241,17 +220,16 @@ const ProfileDashboard = () => {
                       className='w-ful '
                       style={{ border: "  ", borderRadius: 4 }}
                     >
-                      
                       <span className='flex gap-3 text-slate-500 h-64 w-full'>
                         <div
                           className='w-96 h-96'
                           style={{ border: "  ", borderRadius: 4 }}
                         >
                           <Calendar
-                            onChange={onChange}
-                            value={date}
-                            className='w-full'
-                          />{" "}
+                            onChange={handleDateClick}
+                            value={selectedDate}
+                            tileContent={tileContent}
+                          />
                         </div>
                       </span>
                     </div>
