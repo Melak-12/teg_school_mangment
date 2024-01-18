@@ -1,6 +1,5 @@
 "use client";
-// import { UserAddOutlined, PlusCircleOutlined } from "@ant-design/icons";
-// import { Avatar, Card, Col, Grid, Row, Switch } from "antd";
+
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -11,8 +10,45 @@ const Dashboard = () => {
   const toggleModal = () => {
     setModalVisible((prev) => !prev);
   };
-  // const tools = [
-  //   {
+
+  const tools = [
+    {
+      id: "1",
+      icon: <i className='fa fa-home'></i>,
+      link: "/dashboard",
+      label: "Home",
+      color: "",
+    },
+    {
+      id: "2",
+      icon: <i className='fa fa-book-open-reader'></i>,
+      link: "../tools/library/",
+      label: "Library",
+      color: "text-red-400",
+    },
+    {
+      id: "3",
+      icon: <i className='fa fa-plus'></i>,
+      link: "/dashboard",
+      label: "Add",
+      color: "",
+    },
+    {
+      id: "4",
+      icon: <i className='fa fa-users-line'></i>,
+      link: "../tools/myteams/",
+      label: "Teams",
+      color: "text-pink-600",
+    },
+    {
+      id: "5",
+      icon: <i class='fa-solid fa-book'></i>,
+      link: "../tools/ucs/",
+      label: "UCS",
+      color: "text-yellow-600",
+    },
+  ];
+
   //     name: "trianes",
   //     icon: <UserAddOutlined />,
   //   },
@@ -140,43 +176,23 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className='w-1/3  m-12'>
-            <span className='text-2xl text-center '>HaHu Tools</span>
-            <div className=' flex  flex-wrap h-4/5  gap-16 p-12  overflow-x-scroll shadow-md'>
-              {/* <div className='flex  gap-10'> */}
-              {["fa-home", "fa-book-open-reader", "fa-plus"].map((tool) => (
-                <div key={tool} className='f'>
-                  <Link
-                    href={`${
-                      tool === "fa-book-open-reader"
-                        ? "../tools/library/"
-                        : "/dashboard"
-                    }`}
-                  >
-                    <span className=' w-11 h-11 p-9 rounded-full ring-slate-200 ring-1 shadow-xl flex items-center justify-center text-xl bg-white'>
-                      <span>
-                        {
-                          // <Avatar
-                          //   src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${tool}`}
-                          // />
-                          <i
-                            className={`fa ${
-                              tool === "fa-book-open-reader" && "text-red-400"
-                            } ${tool}`}
-                          ></i>
-                        }
-                      </span>
+          <div className='w-1/3 m-12'>
+            <span className='text-2xl text-center'>HaHu Tools</span>
+            <div className='flex flex-wrap h-4/5 gap-16 p-12 overflow-x-scroll shadow-md'>
+              {tools.map((tool) => (
+                <div key={tool.id} className='f'>
+                  <Link href={tool.link}>
+                    <span
+                      className={`w-11 h-11 p-9 rounded-full ring-slate-200 ring-1 shadow-xl flex items-center justify-center text-xl bg-white ${tool.color}`}
+                    >
+                      {tool.icon}
                     </span>
-
-                    <span className='px-4'>{`${
-                      tool === 'fa-book-open-reader' ? "Library" : "trainees"
-                    }`}</span>
+                    <span className='px-4'>{tool.label}</span>
                   </Link>
                 </div>
               ))}
             </div>
           </div>
-
           <div className='w bg-white h-4/5'>
             <div className='  '>
               <span className='text-2xl text-center '>News, and updates</span>
