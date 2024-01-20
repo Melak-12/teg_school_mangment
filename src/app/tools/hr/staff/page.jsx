@@ -1,9 +1,24 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-
+const topBar = [
+  "Staff Name/ID",
+  "Sex",
+  "Position",
+  "Department",
+  "Experience",
+  "GPA",
+  "Education",
+  "Contact Number",
+  "Date Joined",
+  "Status",
+];
 const Staff = () => {
+  const [selectedButton, setSelectedButton] = useState(null);
 
+  const handleButtonClick = (btn) => {
+    setSelectedButton(btn);
+  };
 
   return (
     <>
@@ -84,21 +99,22 @@ const Staff = () => {
           </div>
         </div>
         <div className='flex flex-wrap gap-7 flex-row'>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((btn) => (
-            <span
-              key={btn}
-              className={`p-1 px-8 text-lg cursor-pointer rounded-md ${
-                btn === 8 ? "bg-blue-600 text-white" : "bg-slate-200"
-              } py-3 text-slate-400`}
-            >
-              Leave request
-            </span>
-          ))}
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((btn) => (
+          <span
+            key={btn}
+            className={`p-1 px-8 text-lg cursor-pointer rounded-md ${
+              selectedButton === btn ? "bg-blue-600 text-white" : "bg-slate-200"
+            } py-3 text-slate-400`}
+            onClick={() => handleButtonClick(btn)}
+          >
+            Leave request
+          </span>
+        ))}
         </div>
         <div className='flex flex-row flex-wrap gap-6  overflow-x-scroll justify-around'>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((tab) => (
-            <span key={tab} className='font-bold text-slate-500 gap-0  '>
-              tab{tab}
+        {topBar.map((tab) => (
+            <span key={tab} className='font-bold text-slate-500 gap-0'>
+              {tab}
             </span>
           ))}
         </div>
@@ -141,7 +157,7 @@ const Staff = () => {
                 <button
                   data-modal-hide='default-modal'
                   type='button'
-                  className={`text-slate-400 ring-1 ring-red-300 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-0 `}
+                  className={`text-slate-400 h-5 ring-1 ring-red-300 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-0 `}
                 >
                   on leave
                 </button>
@@ -149,7 +165,7 @@ const Staff = () => {
                 <button
                   data-modal-hide='default-modal'
                   type='button'
-                  className={`text-slate-400 ring-1 ring-blue-300 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 -py-3 `}
+                  className={`text-slate-400 h-5 ring-1 ring-blue-300 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 -py-3 `}
                 >
                   at work
                 </button>

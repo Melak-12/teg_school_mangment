@@ -1,12 +1,28 @@
-'use client'
+"use client";
 import React, { useState } from "react";
-// import Chart from "./Chart";
+// import Chart from "./Chart2";
 // import { Calendar } from "antd";
 import Image from "next/image";
+import Calendar from "react-calendar";
 // import Calendar from "react-calendar";
 // import "react-calendar/dist/Calendar.css";
 const Dashboard = () => {
   const [date, setDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(null);
+  const tileContent = ({ date, view }) => {
+    if (view === "month" && date.getTime() === selectedDate?.getTime()) {
+      return (
+        <div className='bg-green-500 text-white p-2 rounded-full'>
+          {date.getDate()}
+        </div>
+      );
+    }
+    return null;
+  };
+
+  const handleDateClick = (date) => {
+    setSelectedDate(date);
+  };
 
   const onChange = (newDate) => {
     setDate(newDate);
@@ -67,6 +83,7 @@ const Dashboard = () => {
       <div className='flex flex-row mx-8 justify-between'>
         <div className='flex justify-around flex-row gap-32 text-slate-700    rounded-xl w-full  '>
           {/* chart! */}
+          {/* <Chart/> */}
           <div className='h-[calc(50vh-5rem)] w-96 bg-blue-200 rounded-lg '>
             {/* <Chart /> */}chart
           </div>
@@ -74,40 +91,36 @@ const Dashboard = () => {
           <span className='flex gap-3 w-96 shadow-lg text-yellow-500'>
             Financial summery
           </span>
-          <span className='flex gap-3 text-yellow-500'>
+          <div className='flex gap-3 flex-col'>
+            <span>Calander</span>
             <div
-              className='w-96 h-96'
+              className='w-96 h-96 pt-9'
               style={{ border: "  ", borderRadius: 4 }}
             >
-              {/* <Calendar
-                fullscreen={false}
-                // onPanelChange={onPanelChange}
-              /> */}
-              {/* <Calendar onChange={onChange} value={date} />{" "} */}
+              <div className='flex w-full h-96'>
+                <Calendar
+                  onChange={handleDateClick}
+                  value={selectedDate}
+                  tileContent={tileContent}
+                />
+              </div>
             </div>
-          </span>
-          <span className='flex gap-3 text-yellow-500'>
-            <div
-              className='w-96 h-96'
-              style={{ border: "  ", borderRadius: 4 }}
-            >
-              {/* <Calendar
-                fullscreen={false}
-                // onPanelChange={onPanelChange}
-              /> */}
-              calendar
-            </div>
-          </span>
+          </div>
         </div>
       </div>
       <div className='flex flex-row mx-8 justify-between'>
         <div className='flex flex-row gap-6 text-slate-700  p-5  rounded-xl w-full justify-around '>
-          <span className='flex gap-3 px-11 py-2 w-96 rounded-lg shadow-md text-green-400'>
+          <span className='flex gap-3 px-11 py-2 w-96 rounded-lg shadow-md text-slate-800 '>
             <span>
-              <i className='fa fa-user rounded-full bg-slate-200 text-xl p-4'></i>
+              <i
+                className='fa fa-graduation-cap rounded-full bg-slate-200 text-xl p-4 font-bold'
+                aria-hidden='true'
+              ></i>
             </span>
             <span className='flex flex-col'>
-              <span className='text-slate-500 text-lg font-bold'>Students</span>{" "}
+              <span className='text-slate-500 text-lg font-bold'>
+                AT OFFICE
+              </span>{" "}
               <span className='text-sm flex flex-row gap-4 p-2 text-slate-400 '>
                 <span>
                   <i className='fa fa-male'></i>male
@@ -116,15 +129,18 @@ const Dashboard = () => {
                   <i className='fa fa-female'></i>female
                 </span>
               </span>
-              120
+              380
             </span>
           </span>{" "}
-          <span className='flex gap-3 px-11 py-2 w-96 rounded-lg text-pink-600 shadow-md'>
+          <span className='flex gap-3 px-11 py-2 w-96 rounded-lg text-slate-900 shadow-md'>
             <span>
-              <i className='fa fa-home rounded-full bg-slate-200 text-xl p-4'></i>
+              <i
+                className='fa fa-desktop rounded-full bg-slate-200 text-xl p-4 font-bold'
+                aria-hidden='true'
+              ></i>{" "}
             </span>
             <span className='flex flex-col'>
-              <span className='text-slate-500 text-lg font-bold'>Employe</span>{" "}
+              <span className='text-slate-500 text-lg font-bold'>ON LEAVE</span>{" "}
               <span className='text-sm flex flex-row gap-4 p-2 text-slate-400 '>
                 <span>
                   <i className='fa fa-male'></i>male
@@ -133,15 +149,20 @@ const Dashboard = () => {
                   <i className='fa fa-female'></i>female
                 </span>
               </span>
-              120
+              100
             </span>
           </span>{" "}
-          <span className='flex gap-3 px-11 py-2 w-96 rounded-lg text-cyan-600 shadow-md'>
+          <span className='flex gap-3 px-11 py-2 w-96 rounded-lg text-black shadow-md'>
             <span>
-              <i className='fa fa-shop rounded-full bg-slate-200 text-xl p-4'></i>
+              <i
+                className='fa fa-desktop rounded-full bg-slate-200 text-xl p-4 font-bold'
+                aria-hidden='true'
+              ></i>{" "}
             </span>
             <span className='flex flex-col'>
-              <span className='text-slate-500 text-lg font-bold'>Students</span>{" "}
+              <span className='text-slate-500 text-lg font-bold'>
+                SICK LEAVE
+              </span>{" "}
               <span className='text-sm flex flex-row gap-4 p-2 text-slate-400 '>
                 <span>
                   <i className='fa fa-male'></i>male
@@ -150,7 +171,7 @@ const Dashboard = () => {
                   <i className='fa fa-female'></i>female
                 </span>
               </span>
-              11
+              50
             </span>
           </span>{" "}
         </div>
@@ -208,7 +229,7 @@ const Dashboard = () => {
                 <button
                   data-modal-hide='default-modal'
                   type='button'
-                  className={`text-white ring-1 bg-red-300 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-0 `}
+                  className={`text-white ring-1 bg-red-300 h-5 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-0 `}
                 >
                   absent{" "}
                 </button>
@@ -216,7 +237,7 @@ const Dashboard = () => {
                 <button
                   data-modal-hide='default-modal'
                   type='button'
-                  className={`text-white ring-1 bg-green-300  rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-1 `}
+                  className={`text-white ring-1 h-7 bg-green-300  rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-1 `}
                 >
                   present
                 </button>

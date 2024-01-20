@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Staff from "./staff/page";
 import Dashboard from "./Dashboard";
 import Candidate from "./candidate/page";
+import Payroll from "./payroll/page";
+import Requests from "./requests/page";
 import Log from "./log/page";
 import Image from "next/image";
 
@@ -27,8 +29,8 @@ const Hr = () => {
 
   return (
     <>
-      <div className='flex flex-col w-full '>
-        <div className='flex flex-row justify-between p-5 w-full'>
+      <div className='flex flex-col w-full  '>
+        <div className='flex flex-row justify-between p-5  w-full'>
           <span>
             <Image src={"/logo.png"} alt='' width={40} height={40} />
           </span>
@@ -43,14 +45,16 @@ const Hr = () => {
             />
           </span>
         </div>
-        <div className='flex flex-row w-full mx-8 gap-3'>
+        <div className='flex flex-row w-full mx-10 gap-3'>
           <div className='flex fixed h-96 flex-col w-16 shadow-lg ring-1 ring-slate-200  overflow-y-scroll gap-7 rounded-lg'>
             {[
               "fa fa-home",
               "fa fa-plane",
               "fa-solid fa-user-plus",
-              "fa-solid fa-notes-medical",
+              "fa-solid fa-money-bill",
+              // "fa-solid fa-notes-medical",
               "fa-solid fa-rotate-right",
+              "fa-solid fa-glasses",
             ].map((icon, index) => (
               <div
                 key={icon}
@@ -59,7 +63,9 @@ const Hr = () => {
               >
                 <span>
                   <i
-                    className={`${icon} p-3 text-xl ${
+                    className={`${icon} p-3 ${
+                      icon === "fa-solid fa-glasses" && "mt-10"
+                    } text-xl ${
                       iconClickStates[index]
                         ? "bg-blue-500 text-blue-100  rounded-xl"
                         : ""
@@ -97,9 +103,9 @@ const Hr = () => {
             ) : (
               (tab === "fa fa-plane" && <Staff />) /* Missing colon here */ ||
               (tab === "fa-solid fa-user-plus" && <Candidate />) ||
-              (tab === "fa-solid fa-rotate-right" && <Log />) || (
-                <>wait for this tab</>
-              )
+              (tab === "fa-solid fa-money-bill" && <Payroll />) ||
+              (tab === "fa-solid fa-rotate-right" && <Log />) ||
+              (tab === "fa-solid fa-glasses" && <Requests />)
             ) /* Missing colon here */
           }
         </div>
