@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const page = () => {
@@ -8,14 +9,16 @@ const page = () => {
         <div className='flex gap-20'>
           <span className='mt-3'>
             <div className='w-10 h-10 rounded-full shadow-lg relative'>
-              <Image
-                src={"/logo.png"}
-                alt='image'
-                layout='fill'
-                objectFit='cover'
-                className='rounded-lg rounded-image'
-                objectPosition='center'
-              />
+              <Link href={"/dashboard"}>
+                <Image
+                  src={"/logo.png"}
+                  alt='image'
+                  layout='fill'
+                  objectFit='cover'
+                  className='rounded-lg rounded-image'
+                  objectPosition='center'
+                />
+              </Link>
             </div>
           </span>
           <div className='flex flex-row mt-3'>
@@ -29,13 +32,15 @@ const page = () => {
             <i className='fa fa-search mt-2 -mx-5 text-slate-400'></i>
           </div>
         </div>
-        <Image
-          src={"/elsabet.jpeg"}
-          alt=''
-          width={50}
-          height={40}
-          className='rounded-full rounded-image  ring-1 ring-slate-400 -pb-2'
-        />
+        <Link href={"/profile"}>
+          <Image
+            src={"/elsabet.jpeg"}
+            alt=''
+            width={50}
+            height={40}
+            className='rounded-full rounded-image  ring-1 ring-slate-400 -pb-2'
+          />
+        </Link>
       </div>
       <div className='flex flex-row justify-between gap-20 px-20 pt-20  '>
         <div className='w-full h-96 rounded-lg shadow-lg relative'>

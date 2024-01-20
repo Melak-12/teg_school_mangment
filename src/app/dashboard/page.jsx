@@ -40,13 +40,13 @@ const Dashboard = () => {
       label: "Teams",
       color: "text-pink-600",
     },
-    // {
-    //   id: "5",
-    //   icon: <i class='fa-solid fa-book'></i>,
-    //   link: "../tools/ucs/",
-    //   label: "UCS",
-    //   color: "text-yellow-600",
-    // },
+    {
+      id: "5",
+      icon: <i class='fa-solid fa-book'></i>,
+      link: "../tools/ucs/",
+      label: "UCS",
+      color: "text-yellow-600",
+    },
   ];
 
   //     name: "trianes",

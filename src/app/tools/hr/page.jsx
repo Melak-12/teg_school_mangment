@@ -8,6 +8,7 @@ import Payroll from "./payroll/page";
 import Requests from "./requests/page";
 import Log from "./log/page";
 import Image from "next/image";
+import Link from "next/link";
 
 const Hr = () => {
   const [iconClickStates, setIconClickStates] = useState(Array(8).fill(false));
@@ -32,17 +33,21 @@ const Hr = () => {
       <div className='flex flex-col w-full  '>
         <div className='flex flex-row justify-between p-5  w-full'>
           <span>
-            <Image src={"/logo.png"} alt='' width={40} height={40} />
+            <Link href={"/dashboard/"}>
+              <Image src={"/logo.png"} alt='' width={40} height={40} />
+            </Link>
           </span>
           <span className='text-slate-500 gap-5 flex flex-row'>
             <span className='flex pt-4 '>20,jan,2023</span>{" "}
-            <Image
-              src={"/elsabet.jpeg"}
-              alt=''
-              width={40}
-              height={40}
-              className='rounded-full rounded-image  ring-1 ring-slate-400 -pb-2'
-            />
+            <Link href={"/profile/"}>
+              <Image
+                src={"/elsabet.jpeg"}
+                alt=''
+                width={40}
+                height={40}
+                className='rounded-full rounded-image  ring-1 ring-slate-400 -pb-2'
+              />
+            </Link>
           </span>
         </div>
         <div className='flex flex-row w-full mx-10 gap-3'>

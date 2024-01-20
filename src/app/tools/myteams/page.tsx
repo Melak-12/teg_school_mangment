@@ -1,6 +1,7 @@
 "use client";
 import { Popover } from "@headlessui/react";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 
@@ -41,24 +42,28 @@ const Teams = () => {
         <div className='flex gap-20'>
           <span className='mt-3'>
             <div className='w-10 h-10 rounded-full shadow-lg relative'>
-              <Image
-                src={"/logo.png"}
-                alt='image'
-                layout='fill'
-                objectFit='cover'
-                className='rounded-lg rounded-image'
-                objectPosition='center'
-              />
+              <Link href={"/dashboard/"}>
+                <Image
+                  src={"/logo.png"}
+                  alt='image'
+                  layout='fill'
+                  objectFit='cover'
+                  className='rounded-lg rounded-image'
+                  objectPosition='center'
+                />
+              </Link>
             </div>
           </span>
         </div>
-        <Image
-          src={"/elsabet.jpeg"}
-          alt=''
-          width={50}
-          height={40}
-          className='rounded-full rounded-image  ring-1 ring-slate-400 -pb-2'
-        />
+        <Link href={"/profile"}>
+          <Image
+            src={"/elsabet.jpeg"}
+            alt=''
+            width={50}
+            height={40}
+            className='rounded-full rounded-image  ring-1 ring-slate-400 -pb-2'
+          />
+        </Link>
       </div>
       <div className='flex bg-slate-200 rounded-xl mx-20'>
         <div className='flex flex-row p-14 justify-between w-full'>

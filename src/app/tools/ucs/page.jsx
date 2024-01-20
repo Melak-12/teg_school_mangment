@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import AddCourse from "./AddCourse";
+import Link from "next/link";
 
 const Ucs = () => {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -17,19 +18,23 @@ const Ucs = () => {
 
   return (
     <div className='p-6 '>
-      <div className='flex flex-row justify-between pt-1 p-5 w-full '>
+      <div className='flex flex-row justify-between p-5  w-full'>
         <span>
-          <Image src={"/logo.png"} alt='' width={40} height={40} />
+          <Link href={"/dashboard/"}>
+            <Image src={"/logo.png"} alt='' width={40} height={40} />
+          </Link>
         </span>
         <span className='text-slate-500 gap-5 flex flex-row'>
           <span className='flex pt-4 '>20,jan,2023</span>{" "}
-          <Image
-            src={"/elsabet.jpeg"}
-            alt=''
-            width={40}
-            height={40}
-            className='rounded-full rounded-image  ring-1 ring-slate-400 -pb-2'
-          />
+          <Link href={"/profile/"}>
+            <Image
+              src={"/elsabet.jpeg"}
+              alt=''
+              width={40}
+              height={40}
+              className='rounded-full rounded-image  ring-1 ring-slate-400 -pb-2'
+            />
+          </Link>
         </span>
       </div>
       <div className='flex flex-row justify-between px-10 pb-10'>

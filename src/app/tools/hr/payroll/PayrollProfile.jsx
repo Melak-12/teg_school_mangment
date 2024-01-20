@@ -43,7 +43,7 @@ const PayrollProfile = ({ payrolStatus }) => {
           </div>
         </div>
       </div>
-      <div className='w-full mt-4 rounded-2xl mb-11 ring-1 flex-wrap ring-slate-200  '>
+      <div className='w-full mt-4 rounded-2xl mb-11  flex-wrap  '>
         <>
           {salaryLog && (
             <div className='flex flex-col w-full gap-7'>
@@ -120,8 +120,93 @@ const PayrollProfile = ({ payrolStatus }) => {
                       </span>
                     ))}
                   </div>
-                  <button className='btn flex w-32 justify-center text-slate-500 text-sm bg-gray-200 rounded-full '>
+                  <button
+                    onClick={salaryAdjustmentTab}
+                    className='btn flex w-32 justify-center text-slate-500 text-sm bg-gray-200 rounded-full '
+                  >
                     adjust salary
+                  </button>
+                </div>
+              </div>
+              <div className='flex mx-7 font-bold text-lg'>salary</div>
+              <div
+                className='flex flex-col p-2 shadow-md ring-1
+               ring-slate-200 rounded-md mx-3 mb-3'
+              >
+                <div className='flex mb-2 flex-row flex-wrap gap-1 w-full overflow-x-scroll justify-around'>
+                  <div className='flex  text-slate-300 flex-row gap-6 w-full justify-around'>
+                    <span>month</span>
+                    <span>salary</span>
+                    <span>bonus</span>
+                    <span className={`px-2   -py-3 `}>reason</span>
+
+                    <span>penalities</span>
+                    <span className={` px-2 -py-3 `}>reason</span>
+
+                    <span>overtime</span>
+                    <span>due date</span>
+                    <span className={` px-5 -py-3 `}>PAYMENT ETB</span>
+                    <span>recite</span>
+                    <span className={` px-8 -py-3 `}>remark</span>
+                  </div>
+                  {/* ))} */}
+                </div>
+                <div className='flex h-96 flex-row flex-wrap gap-1 w-full overflow-x-scroll justify-around'>
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 19, 20, 21, 22].map(
+                    (item) => (
+                      <div
+                        key={item}
+                        className='flex  text-slate-500 flex-row gap-6 w-full justify-around'
+                      >
+                        <span>{item}.jan</span>
+                        <span>450</span>
+                        <span>450</span>
+                        <button
+                          data-modal-hide='default-modal'
+                          type='button'
+                          className={`text-slate-200  ring-1 h-5 ring-slate-300 rounded-md focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium px-2 text-sm  -py-3 `}
+                          // onClick={handlePayrollStatus}
+                        >
+                          your reason
+                        </button>{" "}
+                        <span>450</span>
+                        <button
+                          data-modal-hide='default-modal'
+                          type='button'
+                          className={`text-slate-200  ring-1 h-5 ring-slate-300 rounded-md focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium px-2 text-sm  -py-3 `}
+                        >
+                          your reason
+                        </button>{" "}
+                        <span>450</span>
+                        <span>21,21,2011</span>
+                        <button
+                          data-modal-hide='default-modal'
+                          type='button'
+                          className={`text-slate-500  ring-1 h-5 ring-slate-300 rounded-md focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium px-5 text-sm  -py-3 `}
+                        >
+                          450
+                        </button>
+                        <span>21,21,2011</span>
+                        <button
+                          data-modal-hide='default-modal'
+                          type='button'
+                          className={`text-slate-200  ring-1 h-5 ring-slate-300 rounded-md focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium px-8 text-sm  -py-3 `}
+                        >
+                          your reason
+                        </button>{" "}
+                      </div>
+                    )
+                  )}
+                </div>
+                <div className='flex flex-row justify-between mt-4'>
+                  <button
+                    className='bg-blue-500 rounded-full px-4  text-white'
+                    onClick={() => payrolStatus(false)}
+                  >
+                    generate report
+                  </button>
+                  <button className='bg-slate-200 text-slate-400 rounded-full px-6 py-2'>
+                    close
                   </button>
                 </div>
               </div>
@@ -129,53 +214,286 @@ const PayrollProfile = ({ payrolStatus }) => {
           )}
           {salaryAdjustment && (
             <div className='flex flex-wrap  flex-row     mb-9 '>
-              <div className='flex flex-col  mb-9  w-1/2 bg-white rounded-xl shadow-md'>
-                <span className='text-xl p-7 font-bold '>
-                  salaryAdjustmentistrator
+              <div className='flex flex-col  mb-9   bg-white rounded-xl w-full shadow-xl ring-1 ring-slate-200'>
+                <span className='text-xl p-7 font-bold text-blue-500 '>
+                  salary adjustment
                 </span>
-                <div className='flex flex-col '>
-                  <div className='flex flex-wrap  flex-col   p-10 gap-40    mb-9 bg-white rounded-lg '>
-                    <div className='flex flex-col  mb-9 '>
-                      <span className='text-md   font-bold text-slate-500'>
-                        add salaryAdjustmentistrator
+                <div className='flex flex-col w-full '>
+                  <div className='flex flex-wrap  flex-row   px-10 gap-20   bg-white rounded-lg '>
+                    <div className='flex flex-row  mb-2 gap-3 '>
+                      <i className='fa fa-plus mt-3 mb-0 py-0 h-6 px-1 rounded-full bg-slate-400  text-xl'></i>
+                      <span className='text-md p-0 mt-3 font-bold text-slate-500'>
+                        Current adjustment
                       </span>
-                      <span className='flex pt-3 flex-row gap-2'>
+                      <span className='flex  flex-row gap-2'>
                         <input
                           name=''
                           // onChange={"onChange"}
-                          className='shadow   appearance-none ring-1 ring-slate-400 border rounded-lg w-full py-2 px-3  text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
+                          className='shadow   appearance-none ring-1 ring-slate-400 border rounded-lg w-full py-4 px-3  text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
                           id='description'
                           type='text'
-                          placeholder='enter the units in order '
+                          placeholder='entry '
                         />
-                        <i className='fa fa-plus mt-1 rounded-full bg-slate-400 p-2 text-xl'></i>
                       </span>
                     </div>
-                    <div className='flex flex-col  mb-9 '>
-                      <span className='text-md   font-bold text-slate-500'>
-                        add salaryAdjustmentistrator
+
+                    <div className='flex flex-row  mb-2 gap-3 '>
+                      <i className='fa fa-plus mt-3 mb-0 py-0 h-6 px-1 rounded-full bg-slate-400  text-xl'></i>
+                      <span className='text-md mt-3  font-bold text-slate-500'>
+                        employee
                       </span>
-                      <span className='flex pt-3 flex-row gap-2'>
+                      <span className='flex  flex-row gap-2'>
                         <input
                           name=''
-                          // onChange={"onChange"}
-                          className='shadow   appearance-none ring-1 ring-slate-400 border rounded-lg  py-2 px-3  text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
+                          className='shadow   appearance-none ring-1 ring-slate-400 border rounded-lg w-full py-2 px-4  text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
                           id='description'
                           type='text'
                           placeholder='enter the units in order '
                         />
-                        <i className='fa fa-plus mt-1 rounded-full bg-slate-400 p-2 text-xl'></i>
                       </span>
+                    </div>
+                  </div>
+                  <div className='flex justify-end mt-2 mx-3'>
+                    <button
+                      className='bg-blue-500 rounded-full px-4  text-white'
+                      onClick={() => payrolStatus(false)}
+                    >
+                      apply all{" "}
+                    </button>
+                  </div>
+                </div>
+                <hr className='w-full h-2 mt-2 mb-3' />
+                <div className='flex flex-col mx-5'>
+                  <div className='flex flex-row  mb-2 gap-3 '>
+                    <i className='fa fa-user mt-1 mb-0 py-0 h-8 px-2 rounded-full  text-pink-600  text-3xl'></i>
+
+                    <span className='flex  flex-row gap-2'>
+                      <input
+                        name=''
+                        className='shadow   appearance-none ring-1 ring-slate-400 border rounded-lg w-full py-2 px-4  text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
+                        id='description'
+                        type='text'
+                        placeholder='staff name'
+                      />
+                    </span>
+                  </div>
+                  <div className='flex flex-row  mb-2 gap-3 '>
+                    <i className='fa-solid fa-barcode mt-1 mb-0 py-0 h-10 px-2 pt-1  bg-green-200  rounded-full text-3xl'></i>
+                    <span className='flex  flex-row gap-2'>
+                      <input
+                        name=''
+                        className='shadow   appearance-none ring-1 ring-slate-400 border rounded-lg w-full py-2 px-4  text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
+                        id='description'
+                        type='text'
+                        placeholder='enter stuff id  '
+                      />
+                    </span>
+                  </div>
+                </div>
+                <hr className='w-full h-2 mt-2' />
+                <div className='flex flex-col w-full '>
+                  <div className='flex flex-wrap  flex-row   px-10 gap-12   bg-white rounded-lg '>
+                    <div className='flex flex-row  mb-2 gap-3 '>
+                      <i className='fa fa-search text-yellow-400 mt-3 mb-0 py-0 h-8 px-2  rounded-full  text-xl'></i>
+                      <span className='text-md p-0 mt-3 font-bold text-slate-500'>
+                        Current salary
+                      </span>
+                      <span className='flex  flex-row gap-2'>
+                        <input
+                          name=''
+                          // onChange={"onChange"}
+                          className='shadow w-32  appearance-none ring-1 ring-slate-400 border rounded-lg  py-4 px-1  text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
+                          id='description'
+                          type='text'
+                          placeholder='entry '
+                        />
+                      </span>
+                      <span className='mt-3'> ETB</span>
+                    </div>
+                    <div className='flex flex-row  mb-2 gap-3 '>
+                      <i className='fa-solid fa-scale-balanced text-yellow-400 mt-3 mb-0 py-0 h-8 px-2  rounded-full  text-xl'></i>
+                      <span className='text-md p-0 mt-3 font-bold text-slate-500'>
+                        set to
+                      </span>
+                      <span className='flex  flex-row gap-2'>
+                        <input
+                          name=''
+                          // onChange={"onChange"}
+                          className='shadow  w-32  appearance-none ring-1 ring-slate-400 border rounded-lg  py-4 px-3  text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
+                          id='description'
+                          type='text'
+                          placeholder='entry '
+                        />
+                      </span>
+                      <span className='mt-3'> ETB</span>
+                    </div>
+
+                    <div className='flex flex-row  mb-2 gap-1 '>
+                      <span className='text-md mt-3  font-bold text-slate-500'>
+                        frequency
+                      </span>
+                      <span className='flex  flex-row gap-1'>
+                        <input
+                          name=''
+                          className='shadow  w-32  appearance-none ring-1 ring-slate-400 border rounded-lg  py-2 px-4  text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
+                          id='description'
+                          type='text'
+                          placeholder='enter the units in order '
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <div className='flex flex-row gap-20   flex-wrap overflow-x-scroll  mt-10'>
+                    <div className='flex flex-row gap-5 mx-14 '>
+                      <span className='bg-green-500 text-xs p-2 px-8 rounded-md text-white '>
+                        add
+                      </span>
+                      <input
+                        name=''
+                        className='shadow  w-32  appearance-none ring-1 ring-slate-400 border rounded-lg  py-2 px-4  text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
+                        id='description'
+                        type='text'
+                        placeholder='21,21,2021 '
+                      />
+                    </div>
+                    <div className='flex flex-row gap-5'>
+                      <span className='bg-blue-300 text-xs px-3 py-3 rounded-md text-white '>
+                        21,21,2022
+                      </span>
+                      <span className='bg-blue-300 text-xs px-3 py-3 rounded-md text-white '>
+                        21,21,2022
+                      </span>
+
+                      <span className='bg-blue-300 text-xs px-3 py-3 rounded-md text-white '>
+                        21,21,2022
+                      </span>
+                      <span className='bg-blue-300 text-xs px-3 py-3 rounded-md text-white '>
+                        21,21,2022
+                      </span>
+                      <span className='bg-blue-300 text-xs px-3 py-3 rounded-md text-white '>
+                        21,21,2022
+                      </span>
+                      <span className='bg-blue-300 text-xs px-3 py-3 rounded-md text-white '>
+                        21,21,2022
+                      </span>
+                      <span className='bg-blue-300 text-xs px-3 py-3 rounded-md text-white '>
+                        21,21,2022
+                      </span>
+                    </div>
+                  </div>{" "}
+                  <div className='flex justify-end mt-2 mx-3'>
+                    <button
+                      className='bg-blue-500 rounded-full px-4  text-white'
+                      onClick={() => payrolStatus(false)}
+                    >
+                      all items{" "}
+                    </button>
+                  </div>
+                  <hr className='w-full h-2 mt-2 mb-3' />
+                  <div className='flex flex-col mx-5 gap-6'>
+                    <div className='flex flex-row  mb-2 gap-3 '>
+                      <i className='fa fa-search mt-1 mb-0 py-0 h-8 px-2 rounded-full  text-pink-600  text-3xl'></i>
+                      <span>overtime</span>
+                      <span className='flex  flex-row gap-2'>
+                        <input
+                          name=''
+                          className='shadow   appearance-none ring-1 ring-slate-400 border rounded-lg w-full py-2 px-4  text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
+                          id='description'
+                          type='text'
+                          placeholder='staff name'
+                        />
+                        ETB
+                      </span>
+                    </div>
+                    <div className='flex flex-row  mb-2 gap-3 '>
+                      <i className='fa fa-search mt-1 mb-0 py-0 h-8 px-2 rounded-full  text-green-600  text-3xl'></i>
+                      extra pay
+                      <i className='fa fa-plus mt-2 mb-0 py-0 h-6 px-2  rounded-full bg-slate-400  text-xl'></i>
+                      <span className='flex  flex-row gap-2'>
+                        <input
+                          name=''
+                          className='shadow   appearance-none ring-1 ring-slate-400 border rounded-lg w-full py-2 px-4  text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
+                          id='description'
+                          type='text'
+                          placeholder='enter stuff id  '
+                        />
+                        ETB
+                        <input
+                          name=''
+                          className='shadow   appearance-none ring-1 ring-slate-400 border rounded-lg  py-2 w-28 px-1  text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
+                          id='description'
+                          type='text'
+                          placeholder='21,24,2021'
+                        />
+                      </span>
+                    </div>
+                    <div className='flex flex-row  mb-2 gap-3 mx-10 '>
+                      remark
+                      <span className='flex  flex-row gap-2'>
+                        <input
+                          name=''
+                          className='shadow    appearance-none ring-1 ring-slate-400 border rounded-lg  py-2 px-64   text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
+                          id='description'
+                          type='text'
+                          placeholder='enter stuff id  '
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <hr className='w-full h-3 m-3' />
+                  <div className='flex flex-col w-full '>
+                    <div className='flex flex-wrap  flex-row   px-10 gap-20   bg-white rounded-lg '>
+                      <div className='flex flex-row  mb-2 gap-3 '>
+                        <i class='fa-solid fa-hourglass-start text-2xl mt-3 text-emerald-500'></i>
+                        {/* <i className='fa fa-plus mt-3 mb-0 py-0 h-8 px-2  rounded-full bg-slate-400  text-xl'></i> */}
+                        <span className='text-md p-0 mt-3 font-bold text-slate-500'>
+                          handled by
+                        </span>
+                        <span className='flex  flex-row gap-2'>
+                          <input
+                            name=''
+                            // onChange={"onChange"}
+                            className='shadow   appearance-none ring-1 ring-slate-400 border rounded-lg w-full py-4 px-3  text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
+                            id='description'
+                            type='text'
+                            placeholder='yirgalem beyisa '
+                          />
+                        </span>
+                      </div>
+
+                      <div className='flex flex-row  mb-2 gap-3 '>
+                        <i class='fa-solid fa-hourglass-start text-2xl mt-3 text-emerald-500'></i>
+                        <span className='text-md mt-3  font-bold text-slate-500'>
+                          tutution update
+                        </span>
+                        <span className='flex  flex-row gap-2'>
+                          <input
+                            name=''
+                            className='shadow   appearance-none ring-1 ring-slate-400 border rounded-lg w-full py-2 px-4  text-slate-700 leading-tight focus:outline-none focus:shadow-outline'
+                            id='description'
+                            type='text'
+                            placeholder='21,21,2021 '
+                          />
+                        </span>
+                      </div>
+                    </div>
+                    <div className='flex justify-end mt-2 mx-3 gap-5 m-3'>
+                      <button
+                        className='bg-black rounded-full px-4  text-white'
+                        onClick={() => payrolStatus(false)}
+                      >
+                        history
+                      </button>{" "}
+                      <button
+                        className='bg-slate-300 rounded-full px-4  text-white'
+                        onClick={() => payrolStatus(false)}
+                      >
+                        close
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
-              <button
-                className='flex justify-center ml-40 h-10 bg-blue-700 py-2 rounded-full w-40 text-white '
-                onClick={() => payrolStatus(false)}
-              >
-                finish
-              </button>
             </div>
           )}
         </>
