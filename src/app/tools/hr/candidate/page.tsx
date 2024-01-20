@@ -1,9 +1,26 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-
+const topBar = [
+  "Staff Name/ID",
+  "Sex",
+  "Position",
+  "Department",
+  "Experience",
+  "GPA",
+  "Education",
+  "Contact Number",
+  "interview data",
+  "exam date",
+  "Status",
+  "action",
+];
 const Candidate = () => {
+  const [selectedButton, setSelectedButton] = useState(null);
 
+  const handleButtonClick = (btn) => {
+    setSelectedButton(btn);
+  };
 
   return (
     <>
@@ -88,17 +105,20 @@ const Candidate = () => {
             <span
               key={btn}
               className={`p-1 px-8 text-lg cursor-pointer rounded-md ${
-                btn === 8 ? "bg-blue-600 text-white" : "bg-slate-200"
+                selectedButton === btn
+                  ? "bg-blue-600 text-white"
+                  : "bg-slate-200"
               } py-3 text-slate-400`}
+              onClick={() => handleButtonClick(btn)}
             >
               Leave request
             </span>
           ))}
         </div>
         <div className='flex flex-row flex-wrap gap-6  overflow-x-scroll justify-around'>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((tab) => (
+          {topBar.map((tab) => (
             <span key={tab} className='font-bold text-slate-500 gap-0  '>
-              tab{tab}
+              {tab}
             </span>
           ))}
         </div>
@@ -106,9 +126,9 @@ const Candidate = () => {
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 19].map((item) => (
             <div
               key={item}
-              className='flex  text-slate-500 flex-row gap-20 w-full justify-around'
+              className='flex  text-slate-500 flex-row gap-10 w-full justify-around'
             >
-              <span  className='flex flex-row'>
+              <span className='flex flex-row'>
                 {/* {item}.Melak */}
                 <span>
                   <Image
@@ -132,6 +152,8 @@ const Candidate = () => {
               <span>7</span>
               <span>university</span>
               <span>09832732</span>
+              <span>2020</span>
+              <span>2023</span>
               {item === 4 ||
               item === 3 ||
               item === 6 ||
@@ -140,7 +162,7 @@ const Candidate = () => {
                 <button
                   data-modal-hide='default-modal'
                   type='button'
-                  className={`text-slate-400 ring-1 ring-red-300 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-0 `}
+                  className={`text-slate-400 ring-1 h-5 ring-red-300 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-0 `}
                 >
                   on leave
                 </button>
@@ -148,17 +170,17 @@ const Candidate = () => {
                 <button
                   data-modal-hide='default-modal'
                   type='button'
-                  className={`text-slate-400 ring-1 ring-blue-300 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 -py-3 `}
+                  className={`text-slate-400 ring-1 h-5 ring-blue-300 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 -py-3 `}
                 >
                   at work
                 </button>
               )}
-              <span><i className="fa-solid fa-circle-check text-green-400 font-bold text-lg"></i></span>
-              <span><i className="fa-solid fa-xmark text-red-400 font-bold"></i></span>
-              
+              <span className='flex gap-2'>
+                <i className='fa-solid fa-circle-check text-green-400 font-bold text-lg'></i>
+                <i className='fa-solid fa-xmark text-red-400 font-bold'></i>
+              </span>
             </div>
           ))}
-          
         </div>
       </div>
     </>

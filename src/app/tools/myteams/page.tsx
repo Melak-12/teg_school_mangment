@@ -7,6 +7,12 @@ import Calendar from "react-calendar";
 const Teams = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [buttonClicked, setButtonClicked] = useState(Array(5).fill(false));
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setModalVisible((prev) => !prev);
+  };
+
   const tileContent = ({ date, view }) => {
     if (view === "month" && date.getTime() === selectedDate?.getTime()) {
       return (
@@ -113,12 +119,12 @@ const Teams = () => {
             </div>
             <span className='my-1 mx-3'> members </span>
             <div className='flex flex-row gap-10 w-full justify-around'>
-              <div className='flex flex-col'>
-                <div className='flex flex-col flex-wrap gap-4  overflow-y-scroll h-64 justify-between'>
+              <div className='flex flex-col w-64'>
+                <div className='flex flex-row   flex-wrap gap-4  overflow-y-scroll h-64 justify-between'>
                   {[1, 2, 3, 4, 5].map((item) => (
                     <div
                       key={item}
-                      className='flex  text-slate-500 flex-row justify-between ring-2 ring-slate-300  shadow-md rounded-md bg-slate-200 p-1'
+                      className='flex w-full  flex-wrap text-slate-500 flex-row justify-between ring-2 ring-slate-300  shadow-md rounded-md bg-slate-200 p-1'
                     >
                       <span className='flex flex-row justify-between w-64'>
                         <span className='flex flex-row '>
@@ -132,14 +138,14 @@ const Teams = () => {
                             </span>
                           </span>
                         </span>
-                        <i className='fa-solid fa-ellipsis-vertical'></i>{" "}
-                        {/* <Popover className='relative'>
+
+                        <Popover className='relative'>
                           {({ open }) => (
                             <>
                               <Popover.Button className=''>
-                                <span className='flex cursor-pointer justify-start z-50 text-slate-400 opacity-80'>
-                                  <i className='fa-solid fa-ellipsis-vertical'></i>{" "}
-                                </span>{" "}
+                                <span className='flex cursor-pointer justify-start z-100 text-slate-400 opacity-80'>
+                                  <i className='fa-solid fa-ellipsis-vertical mr-4'></i>{" "}
+                                </span>
                               </Popover.Button>
                               <Popover.Panel
                                 className={`${
@@ -147,19 +153,30 @@ const Teams = () => {
                                 } absolute z-10 bg-white border border-gray-200 right-0 p-5 rounded-md`}
                               >
                                 <>
-                                  <div className='flex justify-center flex-col w-40 text-sm gap-4 text-slate-600 '>
+                                  <div className='flex justify-center flex-col w-40 text-sm gap-2 text-slate-600 '>
                                     <span className='cursor-pointer '>
-                                      ask for leave
+                                      allocate task{" "}
                                     </span>
-                                    <span className='cursor-pointer text-sm'>
-                                      edit profile
+                                    <span className='cursor-pointer '>
+                                      onleave/return{" "}
+                                    </span>
+
+                                    <span className='cursor-pointer '>
+                                      set a meeting{" "}
+                                    </span>
+                                    <span className='cursor-pointer '>
+                                      assign position{" "}
+                                    </span>
+
+                                    <span className='cursor-pointer '>
+                                      remove{" "}
                                     </span>
                                   </div>
                                 </>{" "}
                               </Popover.Panel>
                             </>
                           )}
-                        </Popover> */}
+                        </Popover>
                       </span>
                     </div>
                   ))}
@@ -227,10 +244,56 @@ const Teams = () => {
               <button className='bg-blue-300 text-white shadow-md gap-14 rounded-full m-5 p-2 px-6'>
                 new team{" "}
               </button>
-              <button className='bg-slate-500 text-white shadow-md gap-14 rounded-full m-5 p-2 px-4'>
-                explore teams{" "}
-              </button>
+
+              <Popover className='relative'>
+                {({ open }) => (
+                  <>
+                    <Popover.Button className=''>
+                      <span className='flex cursor-pointer justify-start z-100 text-slate-400 opacity-80'>
+                        <button
+                          className='bg-slate-500 text-white shadow-md gap-14 rounded-full m-5 p-2 px-4'
+                          onClick={toggleModal}
+                        >
+                          explore teams{" "}
+                        </button>{" "}
+                      </span>
+                    </Popover.Button>
+                    <Popover.Panel
+                      className={`${
+                        open ? "block" : "hidden"
+                      } absolute z-10 bg-white border border-gray-200 right-0 p-2 rounded-md`}
+                    >
+                      <>
+                        <div className='flex flex-row flex-wrap gap-4  mt-2 overflow-y-scroll h-64 justify-between'>
+                          {[1, 2, 3, 4, 5].map((item) => (
+                            <div
+                              key={item}
+                              className='flex  text-slate-500 flex-row justify-between    p-1'
+                            >
+                              <span className='flex flex-row justify-between w-64'>
+                                <span className='flex flex-row '>
+                                  <span className=' text-3xl font-thin text-slate-300 px-5'>
+                                    {/* <i className='fa fa-user rounded-full text-blue-400 text-2xl p-2'></i> */}
+                                    |
+                                  </span>
+                                  <span className='flex flex-col'>
+                                    <span>Electronics </span>
+                                    <span className='text-slate-400 text-xs'>
+                                      23,jan,2022
+                                    </span>
+                                  </span>
+                                </span>
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </>{" "}
+                    </Popover.Panel>
+                  </>
+                )}
+              </Popover>
             </div>
+
             <span className='font-bold px-20 text-xl pt-9 flex justify-end'>
               schedule and tasks
             </span>

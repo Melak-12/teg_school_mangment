@@ -90,13 +90,7 @@ const Log = () => {
             </span>
           ))}
         </div>
-        <div className='flex flex-row flex-wrap gap-6  overflow-x-scroll justify-around'>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((tab) => (
-            <span key={tab} className='font-bold text-slate-500 gap-0  '>
-              tab{tab}
-            </span>
-          ))}
-        </div>
+
         <div className='flex flex-row flex-wrap gap-24 text-sm font-thin overflow-x-scroll justify-between'>
           {["employe name", "age", "tasks", "postion", "date", "status"].map(
             (tab) => (
@@ -107,7 +101,7 @@ const Log = () => {
           )}
         </div>
 
-        <span className='h-1 bg-slate-100 w-full my-3' />
+        <span className='h-1 bg-slate-100 w-full ' />
         <div className='flex flex-row flex-wrap gap-4 w-full overflow-y-scroll h-96 justify-between'>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 19].map((item) => (
             <div
@@ -146,7 +140,7 @@ const Log = () => {
                 <button
                   data-modal-hide='default-modal'
                   type='button'
-                  className={`text-white ring-1 bg-red-300 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-0 `}
+                  className={`text-white ring-1 h-6 bg-red-300 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-0 `}
                 >
                   absent{" "}
                 </button>
@@ -154,7 +148,7 @@ const Log = () => {
                 <button
                   data-modal-hide='default-modal'
                   type='button'
-                  className={`text-white ring-1 bg-green-300  rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-1 `}
+                  className={`text-white ring-1 h-6 bg-green-300  rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-sm px-5 py-1 `}
                 >
                   present
                 </button>
