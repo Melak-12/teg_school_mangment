@@ -5,7 +5,7 @@ import AddCourse from "./AddCourse";
 import Link from "next/link";
 
 const Ucs = () => {
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(1);
   const [showBookDetails, setShowBookDetails] = useState(false);
   const [openAddBook, setOpenAddBook] = useState(false);
 
@@ -215,7 +215,7 @@ const Ucs = () => {
                       ))}
                     </div>
                   </div>
-                  <div className='flex flex-col gap-3 pt-4 pr-3 pl-10 h-48 bg-blue-300 text-start w-64 mt-14 mb-1 text-slate-200'>
+                  <div className='flex flex-col gap-3 pt-4 pr-3 pl-10 h-48 bg-violet-400 text-start w-64 mt-14 mb-1 text-slate-200'>
                     <span>ID : ETS0392/12</span>
                     <span>DATA : 12-12,2022</span>
                     <span>CGPA : 3.5</span>
@@ -253,7 +253,7 @@ const Ucs = () => {
                       <span>2.introduction to the design of algorism</span>
                       <span>3.system training </span>
                     </div>
-                    <div className='flex flex-col gap-3 pt-4 pr-3 pl-10 h-60 bg-blue-400 w-full text-start  mt-3 mb-1 text-slate-200'>
+                    <div className='flex flex-col gap-3 pt-4 pr-3 pl-10 h-60 bg-violet-400 w-full text-start  mt-3 mb-1 text-slate-200'>
                       <span className='text-xl px-3 font-bold text-white'>
                         Course material
                       </span>

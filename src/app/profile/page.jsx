@@ -139,23 +139,22 @@ const ProfileDashboard = () => {
           {status === "" ? (
             <>
               <div className='w-2/3  mx-8 rounded-2xl  '>
-                <div className='flex flex-wrap h-64 shadow-lg rounded-xl ring-1 mb-9 ring-slate-200'>
+                <div className='flex flex-col flex-wrap   shadow-lg rounded-xl ring-1 mb-9 ring-slate-200'>
                   <span className='text-xl p-7'>data</span>
                   <div className='flex  flex-wrap '>
                     {[22, 16, 134, 6, 4].map((item) => (
-                      <div
-                        key={item}
-                        className='flex text-slate-500 p-4  flex-col'
-                      >
-                        <span className='text-2xl'>{item}</span>
-                        <span>work days this month</span>
+                      <div key={item} className='flex text-slate-500 p-4  '>
+                        <div className='flex flex-col'>
+                          <span className='text-2xl'>{item}</span>
+                          <span>work days this month</span>
+                        </div>
                       </div>
                     ))}
-                    <div className='flex justify-end '>
-                      <span className='flex justify-end bg-green-400 text-green-100 text-center text-xs h-6 px-3 rounded-xl -mb-11 '>
-                        payroll
-                      </span>
-                    </div>
+                  </div>
+                  <div className='flex justify-end '>
+                    <span className='flex justify-end bg-green-400 text-green-100 text-center text-xs h-6 px-3 rounded-xl m-3 '>
+                      payroll
+                    </span>
                   </div>
                 </div>
                 <div className='flex flex-wrap h-2/3 rounded-xl shadow-lg ring-1  ring-slate-200'>
