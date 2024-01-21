@@ -94,7 +94,7 @@ const Ucs = () => {
         </span>
       </div>
       <div
-        className={`flex  bg-slate-200 px-14 mx-14 mt-6 rounded-md ${
+        className={`flex  shadow-md ring-1 ring-slate-200 px-14 mx-14 mt-6 rounded-md ${
           openAddBook ? "hidden" : ""
         }`}
       >
@@ -130,7 +130,6 @@ const Ucs = () => {
                         <span className='text-xl font-bold'>
                           Computational breach test
                         </span>
-
                         <div className='flex flex-col  text-slate-500'>
                           <p>
                             some details about the course like the quick brown
