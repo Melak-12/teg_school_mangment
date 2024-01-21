@@ -94,7 +94,7 @@ const Ucs = () => {
         </span>
       </div>
       <div
-        className={`flex  shadow-md ring-1 ring-slate-200 px-14 mx-14 mt-6 rounded-md ${
+        className={`flex  shadow-xl ring-1 ring-slate-200 px-14 mx-14 mt-6 rounded-md ${
           openAddBook ? "hidden" : ""
         }`}
       >
