@@ -2,12 +2,14 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import AddCourse from "./AddCourse";
+import Courses from "./Courses";
 import Link from "next/link";
 
 const Ucs = () => {
   const [selectedItem, setSelectedItem] = useState(1);
   const [showBookDetails, setShowBookDetails] = useState(false);
   const [openAddBook, setOpenAddBook] = useState(false);
+  const [openCourses, setOpenCourses] = useState(false);
 
   const handleItemClick = (item) => {
     setSelectedItem(item === selectedItem ? null : item);
@@ -83,12 +85,28 @@ const Ucs = () => {
             />
           </div>
         </div>
-        <span className='flex gap-8 text-slate-500 text-2xl'>
+        <span
+          className='flex gap-8 text-slate-500 text-2xl'
+          onClick={() => setOpenCourses(!openCourses)}
+        >
           <i className='fa fa-list'></i>
           <i className='fa fa-list'></i>
         </span>
       </div>
-      <div className='flex bg-slate-200 px-14 mx-14 mt-6 rounded-md'>
+      <div
+        className={`flex  bg-slate-200 px-14 mx-14 mt-6 rounded-md ${
+          openAddBook ? "hidden" : ""
+        }`}
+      >
+        {openCourses ? (
+          <Courses openCourse={() => setOpenCourses(false)} />
+        ) : null}
+      </div>
+      <div
+        className={`flex  bg-slate-200 px-14 mx-14 mt-6 rounded-md ${
+          openCourses ? "hidden" : ""
+        }`}
+      >
         {!openAddBook ? (
           <div className='flex w-full flex-row'>
             <div className='flex rounded-sm p-6 w-full'>
