@@ -57,7 +57,7 @@ const Dashboard = () => {
     },
     {
       id: "7",
-      icon: <i className='fa-solid fa-square-h text-xl font-bold'></i>,
+      icon: <i className='fa-solid fa-square-h text-2xl font-bold'></i>,
       link: "../tools/hr/",
       label: "HR",
       color: "text-green-600",
