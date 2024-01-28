@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+
 import React, { useState } from "react";
 
 const Dashboard = () => {
@@ -47,8 +48,21 @@ const Dashboard = () => {
       label: "UCS",
       color: "text-yellow-600",
     },
+    {
+      id: "6",
+      icon: <i class='fa-solid fa-earth-americas'></i>,
+      link: "../tools/academia/",
+      label: "Academia",
+      color: "text-indigo-600",
+    },
+    {
+      id: "7",
+      icon: <i class='fa-solid fa-square-h'></i>,
+      link: "../tools/academia/",
+      label: "HR",
+      color: "text-green-600",
+    },
   ];
-
   //     name: "trianes",
   //     icon: <UserAddOutlined />,
   //   },
@@ -178,7 +192,7 @@ const Dashboard = () => {
 
           <div className='w-1/3 m-12'>
             <span className='text-2xl text-center'>HaHu Tools</span>
-            <div className='flex flex-wrap h-4/5 gap-16 p-12 overflow-x-scroll shadow-md'>
+            <div className='flex flex-row flex-wrap h-4/5 gap-16 p-12 overflow-x-scroll shadow-md'>
               {tools.map((tool) => (
                 <div key={tool.id} className='f'>
                   <Link href={tool.link}>

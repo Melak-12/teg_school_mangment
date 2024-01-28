@@ -51,7 +51,7 @@ const Hr = () => {
           </span>
         </div>
         <div className='flex flex-row w-full mx-10 gap-3'>
-          <div className='flex fixed h-96 flex-col w-16 shadow-lg ring-1 ring-slate-200  overflow-y-scroll gap-7 rounded-lg'>
+          <div className='flex fixed  flex-col w-16 shadow-lg ring-1 ring-slate-200  overflow-y-scroll gap-7 rounded-2xl'>
             {[
               "fa fa-home",
               "fa fa-plane",
