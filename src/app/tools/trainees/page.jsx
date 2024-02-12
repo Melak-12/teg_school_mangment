@@ -6,7 +6,7 @@ import Dashboard from "./Dashboard";
 import Report from "./report/page";
 import Image from "next/image";
 import Link from "next/link";
-import Trainees from "./trainees/page";
+import Trainees from "./trainee/page";
 import Tutition from "./tuition/page";
 
 const SuperTrainees = () => {
