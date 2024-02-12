@@ -1,15 +1,11 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import Staff from "./trainees/page";
 import Dashboard from "./Dashboard";
-import Candidate from "./candidate/page";
-import Payroll from "./payroll/page";
+
 import Report from "./report/page";
-import Log from "./log/page";
 import Image from "next/image";
 import Link from "next/link";
-import Departments from "./trainees/page";
 import Trainees from "./trainees/page";
 import Tutition from "./tuition/page";
 
