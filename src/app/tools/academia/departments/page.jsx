@@ -16,6 +16,7 @@ const topBar = [
 const Departments = () => {
   const [selectedItem, setSelectedItem] = useState(1);
   const [selectedButton, setSelectedButton] = useState(null);
+  const [showBookDetails, setShowBookDetails] = useState(false);
   const handleItemClick = (item) => {
     setSelectedItem(item === selectedItem ? null : item);
   };
@@ -100,7 +101,7 @@ const Departments = () => {
                       <div
                         key={item}
                         className={`flex text-slate-500 flex-col gap-6 w-full justify-around cursor-pointer `}
-                        // onClick={handleBackToItems}
+                        onClick={handleBackToItems}
                       >
                         <span className='text-xl font-bold'>
                           Information technology{" "}

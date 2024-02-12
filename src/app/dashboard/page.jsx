@@ -62,6 +62,29 @@ const Dashboard = () => {
       label: "HR",
       color: "text-green-600",
     },
+    {
+      id: "8",
+
+      icon: <i className='fa fa-graduation-cap text-2xl font-bold'></i>,
+      link: "../tools/trainees/",
+      label: "Trainees",
+      color: "text-blue-600",
+    },
+    // {
+    //   id: "9",
+    //   icon: <i className='fa-solid fa-warehouse text-2xl font-bold'></i>,
+    //   link: "../tools/inventory/",
+    //   label: "Inventory",
+    //   color: "text-blue-600",
+    // },
+    {
+      id: "9",
+      icon: <i className='fa-solid fa-cog text-2xl font-bold'></i>,
+      link: "../tools/settings/",
+      label: "settings",
+      color: "text-slate-600",
+    },
+    //
   ];
   //     name: "trianes",
   //     icon: <UserAddOutlined />,
