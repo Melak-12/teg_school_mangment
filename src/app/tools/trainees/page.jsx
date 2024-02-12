@@ -113,7 +113,7 @@ const SuperTrainees = () => {
           }
         </div>
       </div>
-      <div className='flex flex-row'>test</div>
+      <div className='flex flex-row'>wait for it </div>
     </>
   );
 };
