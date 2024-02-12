@@ -3,8 +3,8 @@ import { Popover } from "@headlessui/react";
 import Image from "next/image";
 import React, { useState } from "react";
 // import Tutition from "./Tutition";
-import Tutition from "../trainees/Tutition";
-import FilterModal from "../trainees/FilterModal";
+import Tutition from "../trainee/Tutition";
+import FilterModal from "../trainee/FilterModal";
 import TuitionProfile from "./TuitionProfile";
 
 const topBar = [
