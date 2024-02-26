@@ -54,10 +54,10 @@ const Hr = () => {
           <div className='flex fixed  flex-col w-16 shadow-lg ring-1 ring-slate-200  overflow-y-scroll gap-7 rounded-2xl'>
             {[
               "fa fa-home",
-              "fa fa-plane",
+              "fa fa-user",
               "fa-solid fa-user-plus",
               "fa-solid fa-money-bill",
-              // "fa-solid fa-notes-medical",
+              "fa-solid fa-notes-medical",
               "fa-solid fa-rotate-right",
               "fa-solid fa-glasses",
             ].map((icon, index) => (
@@ -106,7 +106,7 @@ const Hr = () => {
             tab === "fa fa-home" ? (
               <Dashboard />
             ) : (
-              (tab === "fa fa-plane" && <Staff />) /* Missing colon here */ ||
+              (tab === "fa fa-user" && <Staff />) /* Missing colon here */ ||
               (tab === "fa-solid fa-user-plus" && <Candidate />) ||
               (tab === "fa-solid fa-money-bill" && <Payroll />) ||
               (tab === "fa-solid fa-rotate-right" && <Log />) ||

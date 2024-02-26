@@ -1,11 +1,10 @@
 "use client";
 import React, { useState } from "react";
-// import Chart from "./Chart2";
-// import { Calendar } from "antd";
+
 import Image from "next/image";
 import Calendar from "react-calendar";
-// import Calendar from "react-calendar";
-// import "react-calendar/dist/Calendar.css";
+// import { BarChart, LineChart } from "@mantine/charts";
+
 const Dashboard = () => {
   const [date, setDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
@@ -33,7 +32,46 @@ const Dashboard = () => {
   const onChange = (newDate) => {
     setDate(newDate);
   };
-
+  const data = [
+    { month: "January", Smartphones: 1200, Laptops: 900, Tablets: 200 },
+    { month: "February", Smartphones: 1900, Laptops: 1200, Tablets: 400 },
+    { month: "March", Smartphones: 400, Laptops: 1000, Tablets: 200 },
+    { month: "April", Smartphones: 1000, Laptops: 200, Tablets: 800 },
+    { month: "May", Smartphones: 800, Laptops: 1400, Tablets: 1200 },
+    { month: "June", Smartphones: 750, Laptops: 600, Tablets: 1000 },
+  ];
+  const data2 = [
+    {
+      date: "Mar 22",
+      Apples: 2890,
+      Oranges: 2338,
+      Tomatoes: 2452,
+    },
+    {
+      date: "Mar 23",
+      Apples: 2756,
+      Oranges: 2103,
+      Tomatoes: 2402,
+    },
+    {
+      date: "Mar 24",
+      Apples: 3322,
+      Oranges: 986,
+      Tomatoes: 1821,
+    },
+    {
+      date: "Mar 25",
+      Apples: 3470,
+      Oranges: 2108,
+      Tomatoes: 2809,
+    },
+    {
+      date: "Mar 26",
+      Apples: 3129,
+      Oranges: 1726,
+      Tomatoes: 2290,
+    },
+  ];
   return (
     <div className='flex w-full  p-7 mx-32 flex-col gap-4 shadow-xl rounded-xl'>
       <div className='flex flex-row justify-between'>
@@ -90,13 +128,37 @@ const Dashboard = () => {
         <div className='flex justify-around flex-row  text-slate-700    rounded-xl w-full  '>
           {/* chart! */}
           {/* <Chart/> */}
-          <div className=' w-[30%] bg-blue-200 rounded-3xl p-3 shadow-lg '>
+          <div className=' w-[30%] bg-blue-300 rounded-3xl p-3 shadow-lg '>
             {/* <Chart /> */}Trainee success per department
+            {/* <LineChart
+              h={300}
+              w={400}
+              data={data2}
+              dataKey='date'
+              series={[
+                { name: "Apples", color: "indigo.6" },
+                { name: "Oranges", color: "blue.6" },
+                { name: "Tomatoes", color: "red.6" },
+              ]}
+              curveType='linear'
+            /> */}
           </div>
-
-          <span className='flex gap-3 w-[30%] shadow-lg text-yellow-500 rounded-2xl p-3'>
+          <span className='flex flex-col gap-3 w-[30%] shadow-lg text-yellow-500 rounded-2xl p-3'>
             Financial summery
+            {/* <BarChart
+              h={500}
+              w={400}
+              data={data}
+              dataKey='month'
+              series={[
+                { name: "Smartphones", color: "violet.6" },
+                { name: "Laptops", color: "blue.6" },
+                { name: "Tablets", color: "teal.6" },
+              ]}
+              tickLine='y'
+            /> */}
           </span>
+
           <div className='flex gap-3 flex-col'>
             <span>Calander</span>
             <div

@@ -5,11 +5,14 @@ import Staff from "./departments/page";
 import Dashboard from "./Dashboard";
 import Candidate from "./candidate/page";
 import Payroll from "./payroll/page";
+import Occupation from "./occupation/page";
 import Requests from "./requests/page";
 import Log from "./log/page";
 import Image from "next/image";
 import Link from "next/link";
 import Departments from "./departments/page";
+import Level from "./level/page";
+import Sections from "./sections/page";
 
 const Academia = () => {
   const [iconClickStates, setIconClickStates] = useState(Array(8).fill(false));
@@ -77,26 +80,6 @@ const Academia = () => {
                     }`}
                     onClick={() => handleIconClick(index)}
                   ></i>
-
-                  {/* {icon === "fa fa-home" ? (
-                    <i
-                      className={`${icon} p-3 text-xl ${
-                        iconClickStates[index]
-                          ? "bg-blue-500 text-blue-100  rounded-xl"
-                          : ""
-                      }`}
-                      onClick={() => handleIconClick(index)}
-                    ></i>
-                  ) : (
-                    <i
-                      className={`${icon} p-3 text-3xl ${
-                        iconClickStates[index]
-                          ? "bg-blue-500 text-blue-100  rounded-xl"
-                          : ""
-                      }`}
-                      onClick={() => handleIconClick(index)}
-                    ></i>
-                  )} */}
                 </span>
               </div>
             ))}
@@ -107,9 +90,9 @@ const Academia = () => {
               <Dashboard />
             ) : (
               (tab === "fa fa-box" && <Departments />) ||
-              (tab === "fa-solid fa-user-plus" && <Candidate />) ||
-              (tab === "fa-solid fa-money-bill" && <Payroll />) ||
-              (tab === "fa-solid fa-rotate-right" && <Log />) ||
+              (tab === "fa-regular fa-envelope" && <Occupation />) ||
+              (tab === "fa-solid fa-temperature-empty" && <Level />) ||
+              (tab === "fa-solid fa-arrow-right-to-city" && <Sections />)||
               (tab === "fa-solid fa-glasses" && <Requests />)
             ) /* Missing colon here */
           }

@@ -79,12 +79,42 @@ const Dashboard = () => {
     // },
     {
       id: "9",
-      icon: <i className='fa-solid fa-cog text-2xl font-bold'></i>,
-      link: "../tools/settings/",
-      label: "settings",
-      color: "text-slate-600",
+      icon: <i className='fa fa-university text-2xl font-bold'></i>,
+      link: "../tools/finance/",
+      label: "Finance",
+      color: "text-green-500",
     },
-    //
+
+    {
+      id: "10",
+      icon: <i className='fa fa-cart-plus text-2xl font-bold'></i>,
+      link: "../tools/btob/",
+      label: "B2B",
+      color: "text-pink-400",
+    },
+    {
+      id: "11",
+      icon: <i className='fa-solid fa-desktop text-2xl font-bold'></i>,
+      link: "../tools/settings/",
+      label: "Partners",
+      color: "text-blue-600",
+    },
+
+    {
+      id: "12",
+      icon: <i className='fa-solid fa-desktop text-2xl font-bold'></i>,
+      link: "../tools/settings/",
+      label: "Partner",
+      color: "text-blue-500",
+    },
+    {
+      id: "13",
+      icon: <i className='fa fa-cog text-2xl font-bold'></i>,
+      link: "../tools/finance/",
+      label: "Settings",
+      color: "text-blue-500",
+    },
+    //<i className="fa fa-university" aria-hidden="true"></i>
   ];
   //     name: "trianes",
   //     icon: <UserAddOutlined />,
@@ -213,9 +243,9 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className='w-1/3 m-12'>
+          <div className=' flex flex-col flex-wrap w-1/3 m-12 '>
             <span className='text-2xl text-center'>HaHu Tools</span>
-            <div className='flex flex-row flex-wrap h-4/5 gap-16 p-12 overflow-x-scroll shadow-md'>
+            <div className='flex flex-col mb-16 flex-wrap h-96  gap-16 p-10 overflow-x-scroll shadow-md'>
               {tools.map((tool) => (
                 <div key={tool.id} className='f'>
                   <Link href={tool.link}>
@@ -229,6 +259,10 @@ const Dashboard = () => {
                 </div>
               ))}
             </div>
+            <span className='text-xl text-slate-400 font-bold pt-6'>
+              {" "}
+              Select Tools
+            </span>{" "}
           </div>
           <div className='w bg-white h-4/5'>
             <div className='  '>
@@ -462,7 +496,7 @@ const Dashboard = () => {
                 <div className='bg-slate-200 w-72 rounded-r-lg '>
                   <span className='text-blue-400 p-4 pt-2'>HaHu updates</span>
                 </div>
-                {/* <i class="fa fa-user-circle-o" aria-hidden="true"></i> */}
+                {/* <i className="fa fa-user-circle-o" aria-hidden="true"></i> */}
               </div>
             </div>
           </div>

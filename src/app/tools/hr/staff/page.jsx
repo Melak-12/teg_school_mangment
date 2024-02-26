@@ -24,7 +24,7 @@ const Staff = () => {
     <>
       <div className='flex w-full  p-7 mx-32 flex-col gap-8 shadow-xl rounded-xl'>
         <div className='flex text-slate-500 text-xl font-bold'>
-          <i className='fa fa-plane px-3 pt-1 text-xl'></i> Staff
+          <i className='fa fa-user px-3 pt-1 text-xl'></i> Staff
         </div>
         <div className='flex flex-row justify-between p-4'>
           <div className='flex flex-row gap-11 text-slate-700'>
@@ -99,20 +99,22 @@ const Staff = () => {
           </div>
         </div>
         <div className='flex flex-wrap gap-7 flex-row'>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((btn) => (
-          <span
-            key={btn}
-            className={`p-1 px-8 text-lg cursor-pointer rounded-md ${
-              selectedButton === btn ? "bg-blue-600 text-white" : "bg-slate-200"
-            } py-3 text-slate-400`}
-            onClick={() => handleButtonClick(btn)}
-          >
-            Leave request
-          </span>
-        ))}
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((btn) => (
+            <span
+              key={btn}
+              className={`p-1 px-8 text-lg cursor-pointer rounded-md ${
+                selectedButton === btn
+                  ? "bg-blue-600 text-white"
+                  : "bg-slate-200"
+              } py-3 text-slate-400`}
+              onClick={() => handleButtonClick(btn)}
+            >
+              Leave request
+            </span>
+          ))}
         </div>
         <div className='flex flex-row flex-wrap gap-6  overflow-x-scroll justify-around'>
-        {topBar.map((tab) => (
+          {topBar.map((tab) => (
             <span key={tab} className='font-bold text-slate-500 gap-0'>
               {tab}
             </span>

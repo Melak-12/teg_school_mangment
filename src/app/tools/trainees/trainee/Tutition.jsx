@@ -363,42 +363,7 @@ const Tutition = () => {
                                   <span className='text-md px-3 font-bold text-black'>
                                     Accomplishment
                                   </span>
-                                  {/* <div className='flex justify-center flex-col w-full p-3 flex-wrap text-sm gap-2 text-slate-600 '>
-                                    <span className='flex flex-row justify-around'>
-                                      <span className='cursor-pointer '>
-                                        current trainees{" "}
-                                      </span>
-                                      <button className='bg-sky-600 text-sm text-white px-2 rounded-md'>
-                                        resolved
-                                      </button>
-                                    </span>
-
-                                    <span className='flex flex-row justify-around'>
-                                      <span className='cursor-pointer '>
-                                        current trainees{" "}
-                                      </span>
-                                      <button className='bg-sky-600 text-sm text-white px-2 rounded-md'>
-                                        resolved
-                                      </button>
-                                    </span>
-                                    <span className='flex flex-row justify-around'>
-                                      <span className='cursor-pointer '>
-                                        current trainees{" "}
-                                      </span>
-                                      <button className='bg-red-600 text-sm text-white px-2 rounded-md'>
-                                        awaiting
-                                      </button>
-                                    </span>
-
-                                    <span className='flex flex-row justify-around'>
-                                      <span className='cursor-pointer '>
-                                        current trainees{" "}
-                                      </span>
-                                      <button className='bg-sky-600 text-sm text-white px-2 rounded-md'>
-                                        resolved
-                                      </button>
-                                    </span>
-                                  </div> */}
+                                 
                                   <div className=' rounded-md ring-1 ring-slate-200 p-3 flex flex-col gap-2 '>
                                     {[1, 2, 3].map((item) => (
                                       <span

@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import CourseDetails from "./CourseDetail";
+import AddDepartment from "./AddDepartment";
 import React, { useState } from "react";
 const topBar = [
   "Staff Name/ID",
@@ -14,9 +16,11 @@ const topBar = [
   "Status",
 ];
 const Departments = () => {
-  const [selectedItem, setSelectedItem] = useState(1);
-  const [selectedButton, setSelectedButton] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedCourse, setSelectedCourse] = useState(false);
   const [showBookDetails, setShowBookDetails] = useState(false);
+  const [openAddDepartment, setOpenAddDepartment] = useState(false);
+
   const handleItemClick = (item) => {
     setSelectedItem(item === selectedItem ? null : item);
   };
@@ -27,6 +31,12 @@ const Departments = () => {
   const handleButtonClick = (btn) => {
     setSelectedButton(btn);
   };
+  if (selectedItem) {
+    return <CourseDetails courseStatus={() => setSelectedCourse(false)} addDept={()=>setOpenAddDepartment(false)}/>;
+  }
+  if (openAddDepartment) {
+    return <AddDepartment deptStatus={() => setSelectedCourse(false)} />;
+  }
 
   return (
     <>
@@ -36,14 +46,22 @@ const Departments = () => {
             <i className='fa fa-box px-3 pt-1 text-xl'></i> Departments
           </span>
           <button
-            className='bg-blue-600 text-blue-50 rounded-full px-6 p-2'
-            // onClick={() => setOpenAddBook(!openAddBook)}
+            className='bg-blue-600 text-blue-50 text-sm rounded-full px-6 p-2'
+            onClick={() => setOpenAddDepartment(!openAddDepartment)}
           >
-            add course
+            add department
           </button>
         </div>
-
-        <div className='flex w-full flex-row gap-2 shadow-xl rounded-xl p-4 bg-slate-200'>
+        {openAddDepartment && (
+          <div className='flex w-full flex-row gap-2 shadow-xl rounded-xl p-4 bg-slate-200'>
+            <AddDepartment deptStatus={() => setOpenAddDepartment(false)} />
+          </div>
+        )}
+        <div
+          className={`flex  ${
+            openAddDepartment && "hidden"
+          } w-full flex-row gap-2 shadow-xl  rounded-xl p-4 bg-slate-200`}
+        >
           <div className='flex rounded-sm  w-full'>
             <div className='flex flex-wrap  flex-row  '>
               <div className='flex flex-col '>
@@ -67,7 +85,7 @@ const Departments = () => {
                         className={`flex text-slate-500 flex-row gap-10 w-full justify-around cursor-pointer ${
                           item === selectedItem ? "bg-blue-500 text-white" : ""
                         }`}
-                        // onClick={() => handleItemClick(item)}
+                        onClick={() => handleItemClick(item)}
                       >
                         <span className='flex flex-col font-bold'>
                           {item}. &nbsp;&nbsp;&nbsp;information technology

@@ -6,6 +6,8 @@ import React, { useState } from "react";
 import Tutition from "../trainee/Tutition";
 import FilterModal from "../trainee/FilterModal";
 import TuitionProfile from "./TuitionProfile";
+import RegisterPage from "../../../auth/register/page";
+import { useRouter } from "next/navigation";
 
 const topBar = [
   "Staff Name/ID",
@@ -27,6 +29,7 @@ const Tuition = () => {
   const handleTuitionStatus = () => {
     setTuitionStatus(!tuitionStatus);
   };
+  const router = useRouter();
 
   const toggleModal = () => {
     setModalVisible((prev) => !prev);
@@ -35,7 +38,9 @@ const Tuition = () => {
   const handleButtonClick = (item) => {
     setSelectedTrainee(item);
   };
-
+  const registerPage = () => {
+    router.push("../../../auth/register");
+  };
   if (selectedTrainee) {
     return <Tutition payrolStatus={() => setSelectedTrainee(false)} />;
   }
@@ -73,7 +78,10 @@ const Tuition = () => {
             )}
             <div className='flex justify-around gap-16'>
               <i className='fa fa-tag mt-2  text-yellow-700 bg-slate-100 ring-1 ring-yellow-500 rounded-full px-1  text-2xl '></i>
-              <i className='fa fa-plus mt-2  text-white bg-green-600 rounded-full px-1  text-2xl '></i>
+
+              <button onClick={registerPage}>
+                <i className='fa fa-plus mt-2  text-white bg-green-600 rounded-full px-1  text-2xl '></i>
+              </button>
               <span className='flex gap-3'>
                 <span>
                   <Popover className='relative'>

@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-// ... (existing imports)
 
 const AddCourse = ({ addcourse }) => {
   const [general, setGeneral] = useState(true);

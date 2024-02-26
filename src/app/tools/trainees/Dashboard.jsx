@@ -1,11 +1,9 @@
 "use client";
 import React, { useState } from "react";
 // import Chart from "./Chart2";
-// import { Calendar } from "antd";
 import Image from "next/image";
 import Calendar from "react-calendar";
-// import Calendar from "react-calendar";
-// import "react-calendar/dist/Calendar.css";
+
 const Dashboard = () => {
   const [date, setDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);

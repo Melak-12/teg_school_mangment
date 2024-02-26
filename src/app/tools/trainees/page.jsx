@@ -8,6 +8,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Trainees from "./trainee/page";
 import Tutition from "./tuition/page";
+import Log from "./log/page";
+import Requests from "./requests/page";
 
 const SuperTrainees = () => {
   const [iconClickStates, setIconClickStates] = useState(Array(8).fill(false));
@@ -106,9 +108,9 @@ const SuperTrainees = () => {
             ) : (
               (tab === "fa-solid fa-users-viewfinder" && <Trainees />) ||
               (tab === "fa-solid fa-money-bill" && <Tutition />) ||
-              (tab === "fa-solid fa-book" && <Report />)
-              // (tab === "fa-solid fa-rotate-right" && <Payroll />)
-              // (tab === "fa-solid fa-glasses" && <Request />)
+              (tab === "fa-solid fa-book" && <Report />) ||
+              (tab === "fa-solid fa-rotate-right" && <Log />) ||
+              (tab === "fa-solid fa-glasses" && <Requests />)
             ) /* Missing colon here */
           }
         </div>
